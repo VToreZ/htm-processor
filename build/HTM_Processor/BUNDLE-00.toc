@@ -1,0 +1,3 @@
+([('HTM_Processor',
+   '/Users/vtorezdev/Documents/claudeReport/dist/HTM_Processor',
+   'EXECUTABLE')],)
