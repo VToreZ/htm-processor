@@ -2,7 +2,7 @@ name: Build Windows EXE
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   workflow_dispatch:
 
 jobs:
@@ -10,23 +10,23 @@ jobs:
     runs-on: windows-latest
 
     steps:
-    - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
-    - name: Set up Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.10'
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
 
-    - name: Install dependencies
-      run: |
-        pip install tkinterdnd2 pyinstaller
+      - name: Install dependencies
+        run: |
+          pip install tkinterdnd2 pyinstaller
 
-    - name: Build EXE
-      run: |
-        pyinstaller --onefile --windowed --name "HTM_Processor" main.py
+      - name: Build EXE
+        run: |
+          pyinstaller --onefile --windowed --name "HTM_Processor" main.py
 
-    - name: Upload artifact
-      uses: actions/upload-artifact@v3
-      with:
-        name: HTM_Processor_Windows
-        path: dist/HTM_Processor.exe
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: HTM_Processor_Windows
+          path: dist/HTM_Processor.exe
